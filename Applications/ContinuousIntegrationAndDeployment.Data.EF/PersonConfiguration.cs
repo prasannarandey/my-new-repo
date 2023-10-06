@@ -13,8 +13,8 @@ namespace ContinuousIntegrationAndDeployment.Data.EF
     {
         public void Configure(EntityTypeBuilder<Person> builder)
         {
-            builder.Property(x => x.FirstName).IsRequired().HasMaxLength(50);
-            builder.Property(x => x.LastName).IsRequired().HasMaxLength(50);
+            builder.Property(x => x.FirstName).IsRequired().HasMaxLength(40);
+            builder.Property(x => x.LastName).IsRequired().HasMaxLength(60);
         }
     }
 }

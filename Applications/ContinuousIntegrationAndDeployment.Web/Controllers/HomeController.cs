@@ -27,7 +27,8 @@ namespace ContinuousIntegrationAndDeployment.Web.Controllers
             {
                 Id = x.Id,
                 FirstName = x.FirstName,
-                LastName = x.LastName
+                LastName = x.LastName,
+                DateOfBirth = x.DateOfBirth
             }).ToList();
             return View(data);
         }
