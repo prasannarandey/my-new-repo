@@ -16,6 +16,14 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
+- powershell: |
+   dotnet tool update --global dotnet-ef
+   dotnet ef migrations script --output $(Build.ArtifactStagingDirectory)\SQL\EFMigrations.sql
+                               --startup-project Applications\ContinuousIntegrationAndDeployment.Web
+                               --project Applications\ContinuousIntegrationAndDeployment.Data.EF
+                               --context PeopleContext
+                               --idempotent
+
 - task: DotNetCoreCLI@2
   inputs:
     command: publish
